@@ -36,6 +36,7 @@ export const useAuthStore = create((set) => ({
       // breakdown - sends POST request to backend
       // this will be forwaded to port 5000 via vite proxy
       set({ user: response.data.user, isLoggingIn: false });
+      // set user with backend response, react knows u r logged in
       localStorage.setItem('token', response.data.token); // Store token in localStorage
     } catch (error) {
       set({ isLoggingIn: false, user: null });
