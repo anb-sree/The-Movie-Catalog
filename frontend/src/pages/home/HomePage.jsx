@@ -6,5 +6,7 @@ const HomePage = () => {
 	const { user } = useAuthStore();
 
 	return <>{user ? <HomeScreen /> : <AuthScreen />}</>;
+	// if user is logged in show Home screen
+	// else show AuthScreen (landing page)
 };
 export default HomePage;
