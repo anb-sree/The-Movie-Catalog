@@ -21,15 +21,25 @@ function App() {
     authCheck,
     setIsCheckingAuth 
   } = useAuthStore();
+  // This pulls 4 things from Zustand (authUser.js)
+  // user - current logged - in user info.. null if not logged in
+  // isCheckingAuth flag to show loader while checking
+  // authCheck() function to ask backend if cookie / session is valid
+  // setIsCheckingAuth - manual override to stop loading state
+  // Zustand is a small tool that gives you one global place to store and manage React state, without extra files or complicated setup.
+  // inorder to avoid some unnecessary props...
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
         const token = localStorage.getItem('token') || 
                       document.cookie.includes('session');
-        
+                      // checks for token.. local storage (from zustand login)
+                      // or cookie set by backend
+        // if either exists it calls authCheck to check if it's valid
         if (token) {
           await authCheck();
+          // call backend to validate token
         }
       } catch (error) {
         console.error("Auth check failed:", error);
@@ -42,6 +52,8 @@ function App() {
   }, [authCheck, setIsCheckingAuth]);
 
   if (isCheckingAuth) {
+    // if isCheckingAuth is true  show loading...
+    // else render all routes
     return (
       <div className='h-screen'>
         <div className='flex justify-center items-center bg-black h-full'>
@@ -58,6 +70,8 @@ function App() {
         <Route 
           path='/login' 
           element={!user ? <LoginPage /> : <Navigate to="/" />} 
+          // this says if user from zustand (useAuthStore) is null , render Login page
+          // else redirect to / user already logged in..
         />
         <Route 
           path='/signup' 
