@@ -10,7 +10,9 @@ const LoginPage = () => {
 
 	const handleLogin = (e) => {
 		e.preventDefault();
+		// stop browser re-load
 		login({ email, password });
+		// calls zustand login function
 	};
 
 	return (
@@ -27,7 +29,7 @@ const LoginPage = () => {
 							borderRadius: "50%",
 							objectFit: "cover"
   						}} 
-						alt='Netflix Logo' 
+						alt='CineHive Logo' 
 						className='w-32 sm:w-40' 
 						
 					/>
