@@ -1,6 +1,9 @@
 import axios from "axios";
+// for sending HTTP requests
 import toast from "react-hot-toast";
+// for success/ error popups
 import { create } from "zustand";
+// to make global store
 
 export const useAuthStore = create((set) => ({
   user: null,
@@ -11,6 +14,7 @@ export const useAuthStore = create((set) => ({
 
   setIsCheckingAuth: (value) => set({ isCheckingAuth: value }),
 
+  // register new user
   signup: async (credentials) => {
     set({ isSigningUp: true });
     try {
@@ -23,10 +27,14 @@ export const useAuthStore = create((set) => ({
     }
   },
 
+  // manual login
   login: async (credentials) => {
     set({ isLoggingIn: true });
+    // set loading - true
     try {
       const response = await axios.post("/api/v1/auth/login", credentials);
+      // breakdown - sends POST request to backend
+      // this will be forwaded to port 5000 via vite proxy
       set({ user: response.data.user, isLoggingIn: false });
       localStorage.setItem('token', response.data.token); // Store token in localStorage
     } catch (error) {
@@ -35,6 +43,7 @@ export const useAuthStore = create((set) => ({
     }
   },
 
+  // clear session
   logout: async () => {
     set({ isLoggingOut: true });
     try {
@@ -48,15 +57,21 @@ export const useAuthStore = create((set) => ({
     }
   },
 
+  // auto login on page refresh
   authCheck: async () => {
     set({ isCheckingAuth: true });
+    // show loader spinning
     try {
       const res = await axios.get("/api/v1/auth/authCheck");
+      // call backend, if valid - backend returns token else user set to null
       set({ user: res.data.user });
+      // store user in zustand
     } catch (error) {
       set({ user: null });
+      // not authenticated
     } finally {
       set({ isCheckingAuth: false });
+      // done checking
     }
   },
 
