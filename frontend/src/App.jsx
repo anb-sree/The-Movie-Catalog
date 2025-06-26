@@ -71,6 +71,7 @@ function App() {
           path='/login' 
           element={!user ? <LoginPage /> : <Navigate to="/" />} 
           // this says if user from zustand (useAuthStore) is null , render Login page
+          // and once login page is done ,.. if zustand's user state is updated... then app.jsx will re-run that is re-render
           // else redirect to / user already logged in..
         />
         <Route 
