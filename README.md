@@ -7,7 +7,7 @@ CineHive is a full-stack movie streaming platform that lets users explore trendi
 
 ## About
 
-CineHive is built to mimic a streaming service experience using a modern frontend framework and a real backend. Features include user authentication using JWTs (cookies), TMDB-powered content fetching, movie/TV toggles, protected routes, and Zustand state management.
+CineHive is built to mimic a streaming service experience using a modern frontend framework and a real backend. Features include user authentication using JWTs (cookies), TMDB-powered content fetching, movie/TV show toggles, protected routes, and Zustand state management.
 
 ---
 
