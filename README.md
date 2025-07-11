@@ -52,7 +52,7 @@ CineHive is built to mimic a streaming service experience using a modern fronten
 
 - Node.js v18+
 - MySQL installed & running
-- TMDB API Key ([Get it here](https://developer.themoviedb.org/))
+- TMDB API Key
 
 ---
 
