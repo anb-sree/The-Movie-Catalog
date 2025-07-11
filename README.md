@@ -18,8 +18,7 @@ CineHive is built to mimic a streaming service experience using a modern fronten
 - React Router  
 - Zustand  
 - Axios  
-- TailwindCSS  
-- Lucide Icons
+- TailwindCSS
 
 **Backend**  
 - Node.js  
@@ -38,9 +37,9 @@ CineHive is built to mimic a streaming service experience using a modern fronten
 - JWT-based login/signup with cookie storage
 - Zustand-managed global state
 - Auto-auth check on refresh via `/authCheck`
-- Trending movie/TV banner
+- Trending movie/TV show banner
 - Category-based sliders: Action, Comedy, etc.
-- Dynamic movie/TV switching from Navbar
+- Dynamic movie/TV show switching from the Navbar
 - Vite proxy for API routing in development
 - Responsive layout with TailwindCSS
 
@@ -51,8 +50,8 @@ CineHive is built to mimic a streaming service experience using a modern fronten
 ### ⚙️ Prerequisites
 
 - Node.js v18+
-- MySQL installed & running
-- TMDB API Key
+- MySQL workbench for Database Management
+- TMDB API Key to fetch the details in real time
 
 ---
 
